@@ -52,9 +52,9 @@
                         accelerometer.onreading = (e) => {
                             //console.log(e);
                             //alert(JSON.stringify(e));
-                            $('#Ax').text(`Ax: ${accelerometer.x.toFixed(3)} m/s${'2'.sub()}`);
-                            $('#Ay').text(`Ay: ${accelerometer.y.toFixed(3)} m/s<sub>2</sub>`);
-                            $('#Az').text(`Az: ${accelerometer.z.toFixed(3)} m/s<sub>2</sub>`);
+                            $('#Ax').text(`Ax: ${accelerometer.x.toFixed(3)} m/s2`);
+                            $('#Ay').text(`Ay: ${accelerometer.y.toFixed(3)} m/s2`);
+                            $('#Az').text(`Az: ${accelerometer.z.toFixed(3)} m/s2`);
                         };
                         // Start accelerometer
                         accelerometer.start();
