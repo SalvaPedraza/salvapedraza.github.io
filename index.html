@@ -6,12 +6,14 @@
     <body>
         <h1>Track Roll-Over Protection</h1>
         <p>Aceleration:</p>
-        <p>Ax: </p><p id='Ax'></p>
+        <p id="Ax"></p>
+        <p id="Ay"></p>
+        <p id="Az"></p>
 
         <script>
             $(document).ready(function(){
                 alert('Document Ready');
-                $('#Ax').text('popo');
+                $('#Ax').text('Polo');
             });
 
 
@@ -40,7 +42,10 @@
                 };
                 accelerometer.onreading = (e) => {
                     console.log(e);
-                    alert(JSON.stringify(e));
+                    //alert(JSON.stringify(e));
+                    $('#Ax').text(`Ax: ${accelerometer.x}`);
+                    $('#Ay').text(`Ay: ${accelerometer.y}`);
+                    $('#Az').text(`Az: ${accelerometer.z}`);
                 };
                 console.log('Starting');
                 accelerometer.start();
