@@ -11,8 +11,12 @@
         <p id="Az"></p>
         <p>Gyroscope:</p>
         <p id="Gx"></p>
-        <p id="Yy"></p>
+        <p id="Gy"></p>
         <p id="Gz"></p>
+        <p>Geolocation:</p>
+        <p id="Latitude"></p>
+        <p id="Longitued"></p>
+        
 
         <script>
             $(document).ready(function(){
@@ -80,9 +84,19 @@
                     }
                     // Geolocation
                     if ("geolocation" in navigator) {
-                        alert('Geolocation is available found');
+                        //alert('Geolocation is available');
+                        function onNewGeolocation(position) {
+                            $('#Latitude').text(`Latitude: ${position.coords.latitude.toFixed(3)}º`);
+                            $('#Longitude').text(`Longitude: ${position.coords.longitude.toFixed(3)}º`);
+                        }
+                        // Attach geolocation watcher
+                        var watchId = navigator.geolocation.watchPosition(onNewGeolocation);
+
+
+
+
                     } else {
-                        alert('Geolocation is not available found');
+                        alert('Geolocation is not available');
                     }
 
                 }
