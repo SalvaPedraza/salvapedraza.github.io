@@ -9,6 +9,10 @@
         <p id="Ax"></p>
         <p id="Ay"></p>
         <p id="Az"></p>
+        <p>Gyroscope:</p>
+        <p id="Gx"></p>
+        <p id="Yy"></p>
+        <p id="Gz"></p>
 
         <script>
             $(document).ready(function(){
@@ -20,24 +24,50 @@
 
                     let accelerometer = null;
                     try {
+                        // Accelerometer
                         accelerometer = new Accelerometer({ frequency: 10 });
                         accelerometer.onerror = (event) => {
                             // Handle runtime errors.
                             if (event.error.name === 'NotAllowedError') {
-                            console.log('Permission to access sensor was denied.');
+                            console.log('Permission to access accelerometer was denied.');
                             } else if (event.error.name === 'NotReadableError') {
-                            console.log('Cannot connect to the sensor.');
+                            console.log('Cannot connect to the accelerometer.');
                             }
                         };
                         accelerometer.onreading = (e) => {
-                            console.log(e);
+                            //console.log(e);
                             //alert(JSON.stringify(e));
-                            $('#Ax').text(`Ax: ${accelerometer.x.toFixed(2)}`);
-                            $('#Ay').text(`Ay: ${accelerometer.y.toFixed(2)}`);
-                            $('#Az').text(`Az: ${accelerometer.z.toFixed(2)}`);
+                            $('#Ax').text(`Ax: ${accelerometer.x.toFixed(2)} m/s^2`);
+                            $('#Ay').text(`Ay: ${accelerometer.y.toFixed(2)} m/s^2`);
+                            $('#Az').text(`Az: ${accelerometer.z.toFixed(2)} m/s^2`);
                         };
                         // Start accelerometer
                         accelerometer.start();
+
+                        // Gyroscope
+                        gyroscope = new gyroscope({ frequency: 10 });
+                        gyroscope.onerror = (event) => {
+                            // Handle runtime errors.
+                            if (event.error.name === 'NotAllowedError') {
+                            console.log('Permission to access gyroscope was denied.');
+                            } else if (event.error.name === 'NotReadableError') {
+                            console.log('Cannot connect to the gyroscope.');
+                            }
+                        };
+                        gyroscope.onreading = (e) => {
+                            //console.log(e);
+                            //alert(JSON.stringify(e));
+                            $('#Gx').text(`Ax: ${gyroscope.x.toFixed(2)} rad/s`);
+                            $('#Gy').text(`Ay: ${gyroscope.y.toFixed(2)} rad/s`);
+                            $('#Gz').text(`Az: ${gyroscope.z.toFixed(2)} rad/s`);
+                        };
+                        // Start accelerometer
+                        gyroscope.start();
+
+
+
+
+
                     } catch (error) {
                         // Handle construction errors.
                         if (error.name === 'SecurityError') {
