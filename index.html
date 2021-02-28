@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
         <h1>Hellooooooooo World</h1>
         <p>I'm hosted with GitHub Pages.</p>
 
         <script>
+            $(document).ready(function(){
+                alert('Document Ready');
+            });
+
+
+
             if ('Accelerometer' in window) {
                 // The `Accelerometer` interface is supported by the browser.
                 // Does the device have an accelerometer, though?
