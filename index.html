@@ -2,6 +2,16 @@
 <html>
     <head>
         <script>
+            if ('Accelerometer' in window) {
+                // The `Accelerometer` interface is supported by the browser.
+                // Does the device have an accelerometer, though?
+                alert('Aceleromter supported');
+            } else {
+                alert('Aceleromter not supported'); 
+            }
+
+
+
             if (window.DeviceOrientationEvent) {
                 window.addEventListener("deviceorientation", function () {
                     tilt([event.beta, event.gamma]);
