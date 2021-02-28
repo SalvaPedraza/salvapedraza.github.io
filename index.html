@@ -11,7 +11,7 @@
             if ('Accelerometer' in window) {
                 // The `Accelerometer` interface is supported by the browser.
                 // Does the device have an accelerometer, though?
-                alert('2222 Aceleromter supported');
+                alert('333 Aceleromter supported');
                 console.log('DDDDD');
             } else {
                 alert('Aceleromter not supported'); 
@@ -21,7 +21,7 @@
 
             let accelerometer = null;
             try {
-                accelerometer = new Accelerometerfff({ frequency: 10 });
+                accelerometer = new Accelerometer({ frequency: 10 });
                 accelerometer.onerror = (event) => {
                     // Handle runtime errors.
                     if (event.error.name === 'NotAllowedError') {
