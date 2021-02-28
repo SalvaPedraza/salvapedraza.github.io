@@ -4,12 +4,14 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
-        <h1>Hellooooooooo World</h1>
-        <p>I'm hosted with GitHub Pages.</p>
+        <h1>Track Roll-Over Protection</h1>
+        <p>Aceleration:</p>
+        <p>Ax: </p><p id='Ax'></p>
 
         <script>
             $(document).ready(function(){
                 alert('Document Ready');
+                $('#Ax').html = 'popo';
             });
 
 
@@ -38,7 +40,7 @@
                 };
                 accelerometer.onreading = (e) => {
                     console.log(e);
-                    alert(JSON.stringify(e, null, 2));
+                    alert(JSON.stringify(e));
                 };
                 console.log('Starting');
                 accelerometer.start();
