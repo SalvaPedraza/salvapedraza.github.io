@@ -92,7 +92,7 @@
                         function onNewGeolocation(position) {
                             $('#Latitude').text(`Latitude: ${position.coords.latitude.toFixed(3)}º`);
                             $('#Longitude').text(`Longitude: ${position.coords.longitude.toFixed(3)}º`);
-                            $('#Altitude').text(`Altitude: ${position.coords.altitude.toFixed(3)} m`);
+                            if (position.coords.altitude) $('#Altitude').text(`Altitude: ${position.coords.altitude.toFixed(3)} m`);
                             $('#Accuracy').text(`Accuracy: ${position.coords.accuracy.toFixed(3)} m`);
                             $('#AltitudeAccuracy').text(`Altitude Accuracy: ${position.coords.altitudeAccuracy.toFixed(3)} m`);
                             $('#Heading').text(`Heading: ${position.coords.heading.toFixed(3)}º`);
