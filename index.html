@@ -12,58 +12,48 @@
 
         <script>
             $(document).ready(function(){
-                alert('Document Ready');
-                $('#Ax').text('Polo');
-            });
+                //alert('Document Ready');
+                if (!('Accelerometer' in window)) {
+                    // The `Accelerometer` interface is not supported by the browser.
+                    alert('Aceleromter not supported in this device');
+                    console.log('Aceleromter not supported in this device');
 
-
-
-            if (!('Accelerometer' in window)) {
-                // The `Accelerometer` interface is not supported by the browser.
-                alert('Aceleromter not supported in this device');
-                console.log('Aceleromter not supported in this device');
-
-                let accelerometer = null;
-                try {
-                    accelerometer = new Accelerometer({ frequency: 1 });
-                    accelerometer.onerror = (event) => {
-                        // Handle runtime errors.
-                        if (event.error.name === 'NotAllowedError') {
-                        console.log('Permission to access sensor was denied.');
-                        } else if (event.error.name === 'NotReadableError') {
-                        console.log('Cannot connect to the sensor.');
+                    let accelerometer = null;
+                    try {
+                        accelerometer = new Accelerometer({ frequency: 10 });
+                        accelerometer.onerror = (event) => {
+                            // Handle runtime errors.
+                            if (event.error.name === 'NotAllowedError') {
+                            console.log('Permission to access sensor was denied.');
+                            } else if (event.error.name === 'NotReadableError') {
+                            console.log('Cannot connect to the sensor.');
+                            }
+                        };
+                        //accelerometer.onreading = (e) => {
+                        accelerometer.addEventListener('reading', () => {
+                            console.log(e);
+                            //alert(JSON.stringify(e));
+                            $('#Ax').text(`Ax: ${accelerometer.x.toFixed(2)}`);
+                            $('#Ay').text(`Ay: ${accelerometer.y.toFixed(2)}`);
+                            $('#Az').text(`Az: ${accelerometer.z.toFixed(2)}`);
+                        });
+                        // Start accelerometer
+                        accelerometer.start();
+                    } catch (error) {
+                        // Handle construction errors.
+                        if (error.name === 'SecurityError') {
+                            console.log('Sensor construction was blocked by the Permissions Policy.');
+                        } else if (error.name === 'ReferenceError') {
+                            console.log('Sensor is not supported by the User Agent.');
+                        } else {
+                            throw error;
                         }
-                    };
-                    //accelerometer.onreading = (e) => {
-                    accelerometer.addEventListener('reading', () => {
-                        console.log(e);
-                        //alert(JSON.stringify(e));
-                        $('#Ax').text(`Ax: ${accelerometer.x}`);
-                        $('#Ay').text(`Ay: ${accelerometer.y}`);
-                        $('#Az').text(`Az: ${accelerometer.z}`);
-                    });
-                    // Start accelerometer
-                    accelerometer.start();
-                } catch (error) {
-                    // Handle construction errors.
-                    if (error.name === 'SecurityError') {
-                        console.log('Sensor construction was blocked by the Permissions Policy.');
-                    } else if (error.name === 'ReferenceError') {
-                        console.log('Sensor is not supported by the User Agent.');
-                    } else {
-                        throw error;
                     }
+
                 }
-
-            }
-
-            
+            });           
 
             
         </script>
-
-
-
-
     </body>
 </html>
