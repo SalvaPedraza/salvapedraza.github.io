@@ -21,7 +21,7 @@
 
             let accelerometer = null;
             try {
-                accelerometer = new Accelerometer({ frequency: 10 });
+                accelerometer = new Accelerometer({ frequency: 1 });
                 accelerometer.onerror = (event) => {
                     // Handle runtime errors.
                     if (event.error.name === 'NotAllowedError') {
