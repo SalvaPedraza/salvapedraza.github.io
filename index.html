@@ -5,7 +5,7 @@
             if ('Accelerometer' in window) {
                 // The `Accelerometer` interface is supported by the browser.
                 // Does the device have an accelerometer, though?
-                alert('Aceleromter supported');
+                alert('1111 Aceleromter supported');
             } else {
                 alert('Aceleromter not supported'); 
             }
@@ -27,30 +27,18 @@
             };
             accelerometer.start();
             } catch (error) {
-            // Handle construction errors.
-            if (error.name === 'SecurityError') {
-                console.log('Sensor construction was blocked by the Permissions Policy.');
-            } else if (error.name === 'ReferenceError') {
-                console.log('Sensor is not supported by the User Agent.');
-            } else {
-                throw error;
-            }
+                // Handle construction errors.
+                if (error.name === 'SecurityError') {
+                    console.log('Sensor construction was blocked by the Permissions Policy.');
+                } else if (error.name === 'ReferenceError') {
+                    console.log('Sensor is not supported by the User Agent.');
+                } else {
+                    throw error;
+                }
             }
 
 
-            if (window.DeviceOrientationEvent) {
-                window.addEventListener("deviceorientation", function () {
-                    tilt([event.beta, event.gamma]);
-                }, true);
-            } else if (window.DeviceMotionEvent) {
-                window.addEventListener('devicemotion', function () {
-                    tilt([event.acceleration.x * 2, event.acceleration.y * 2]);
-                }, true);
-            } else {
-                window.addEventListener("MozOrientation", function () {
-                    tilt([orientation.x * 50, orientation.y * 50]);
-                }, true);
-            }
+            
         </script>
     </head>
     <body>
