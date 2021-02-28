@@ -30,8 +30,11 @@
                 };
                 accelerometer.onreading = (e) => {
                     console.log(e);
+                    alert('a')
                 };
+                console.log('Starting');
                 accelerometer.start();
+                console.log('Started');
             } catch (error) {
                 // Handle construction errors.
                 if (error.name === 'SecurityError') {
