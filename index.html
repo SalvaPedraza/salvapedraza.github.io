@@ -15,7 +15,11 @@
         <p id="Gz"></p>
         <p>Geolocation:</p>
         <p id="Latitude"></p>
-        <p id="Longitued"></p>
+        <p id="Longitude"></p>
+        <p id="Altitude"></p>
+        <p id="Accuracy"></p>
+        <p id="Heading"></p>
+        <p id="Speed"></p>
         
 
         <script>
@@ -88,6 +92,11 @@
                         function onNewGeolocation(position) {
                             $('#Latitude').text(`Latitude: ${position.coords.latitude.toFixed(3)}º`);
                             $('#Longitude').text(`Longitude: ${position.coords.longitude.toFixed(3)}º`);
+                            $('#Altitude').text(`Altitude: ${position.coords.altitude.toFixed(3)} m`);
+                            $('#Accuracy ').text(`Accuracy: ${position.coords.accuracy.toFixed(3)} m`);
+                            $('#AltitudeAccuracy').text(`Altitude Accuracy: ${position.coords.altitudeAccuracy.toFixed(3)} m`);
+                            $('#Heading').text(`Heading: ${position.coords.heading.toFixed(3)}º`);
+                            $('#Speed').text(`Speed: ${position.coords.speed.toFixed(3)} m/s`);
                         }
                         // Attach geolocation watcher
                         var watchId = navigator.geolocation.watchPosition(onNewGeolocation);
