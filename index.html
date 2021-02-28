@@ -38,9 +38,9 @@
                         accelerometer.onreading = (e) => {
                             //console.log(e);
                             //alert(JSON.stringify(e));
-                            $('#Ax').text(`Ax: ${accelerometer.x.toFixed(2)} m/s<sub>2</sub>`);
-                            $('#Ay').text(`Ay: ${accelerometer.y.toFixed(2)} m/s<sub>2</sub>`);
-                            $('#Az').text(`Az: ${accelerometer.z.toFixed(2)} m/s<sub>2</sub>`);
+                            $('#Ax').text(`Ax: ${accelerometer.x.toFixed(3)} m/s<sub>2</sub>`);
+                            $('#Ay').text(`Ay: ${accelerometer.y.toFixed(3)} m/s<sub>2</sub>`);
+                            $('#Az').text(`Az: ${accelerometer.z.toFixed(3)} m/s<sub>2</sub>`);
                         };
                         // Start accelerometer
                         accelerometer.start();
@@ -58,9 +58,9 @@
                         gyroscope.onreading = (e) => {
                             //console.log(e);
                             //alert(JSON.stringify(e));
-                            $('#Gx').text(`Ax: ${gyroscope.x.toFixed(2)} rad/s`);
-                            $('#Gy').text(`Ay: ${gyroscope.y.toFixed(2)} rad/s`);
-                            $('#Gz').text(`Az: ${gyroscope.z.toFixed(2)} rad/s`);
+                            $('#Gx').text(`Ax: ${gyroscope.x.toFixed(3)} rad/s`);
+                            $('#Gy').text(`Ay: ${gyroscope.y.toFixed(3)} rad/s`);
+                            $('#Gz').text(`Az: ${gyroscope.z.toFixed(3)} rad/s`);
                         };
                         // Start accelerometer
                         gyroscope.start();
