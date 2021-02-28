@@ -29,14 +29,13 @@
                             console.log('Cannot connect to the sensor.');
                             }
                         };
-                        //accelerometer.onreading = (e) => {
-                        accelerometer.addEventListener('reading', () => {
+                        accelerometer.onreading = (e) => {
                             console.log(e);
                             //alert(JSON.stringify(e));
                             $('#Ax').text(`Ax: ${accelerometer.x.toFixed(2)}`);
                             $('#Ay').text(`Ay: ${accelerometer.y.toFixed(2)}`);
                             $('#Az').text(`Az: ${accelerometer.z.toFixed(2)}`);
-                        });
+                        };
                         // Start accelerometer
                         accelerometer.start();
                     } catch (error) {
