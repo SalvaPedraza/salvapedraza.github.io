@@ -46,7 +46,7 @@
                         accelerometer.start();
 
                         // Gyroscope
-                        gyroscope = new gyroscope({ frequency: 10 });
+                        gyroscope = new Gyroscope({ frequency: 10 });
                         gyroscope.onerror = (event) => {
                             // Handle runtime errors.
                             if (event.error.name === 'NotAllowedError') {
