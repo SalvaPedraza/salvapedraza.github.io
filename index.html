@@ -37,9 +37,9 @@
                         accelerometer.onreading = (e) => {
                             //console.log(e);
                             //alert(JSON.stringify(e));
-                            $('#Ax').text(`Ax: ${accelerometer.x.toFixed(2)} m/s^2`);
-                            $('#Ay').text(`Ay: ${accelerometer.y.toFixed(2)} m/s^2`);
-                            $('#Az').text(`Az: ${accelerometer.z.toFixed(2)} m/s^2`);
+                            $('#Ax').text(`Ax: ${accelerometer.x.toFixed(2)} m/s<sub>2</sub>`);
+                            $('#Ay').text(`Ay: ${accelerometer.y.toFixed(2)} m/s<sub>2</sub>`);
+                            $('#Az').text(`Az: ${accelerometer.z.toFixed(2)} m/s<sub>2</sub>`);
                         };
                         // Start accelerometer
                         accelerometer.start();
