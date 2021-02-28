@@ -65,10 +65,6 @@
                         // Start accelerometer
                         gyroscope.start();
 
-
-
-
-
                     } catch (error) {
                         // Handle construction errors.
                         if (error.name === 'SecurityError') {
@@ -81,6 +77,12 @@
                             alert('Exception found');
                             throw error;
                         }
+                    }
+                    // Geolocation
+                    if ("geolocation" in navigator) {
+                        alert('Geolocation is available found');
+                    } else {
+                        alert('Geolocation is not available found');
                     }
 
                 }
