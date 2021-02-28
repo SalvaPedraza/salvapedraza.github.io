@@ -46,7 +46,7 @@
                         accelerometer.onreading = (e) => {
                             //console.log(e);
                             //alert(JSON.stringify(e));
-                            $('#Ax').text(`Ax: ${accelerometer.x.toFixed(3)} m/s{'2'.sub()}`);
+                            $('#Ax').text(`Ax: ${accelerometer.x.toFixed(3)} m/s${'2'.sub()}`);
                             $('#Ay').text(`Ay: ${accelerometer.y.toFixed(3)} m/s<sub>2</sub>`);
                             $('#Az').text(`Az: ${accelerometer.z.toFixed(3)} m/s<sub>2</sub>`);
                         };
@@ -66,9 +66,9 @@
                         gyroscope.onreading = (e) => {
                             //console.log(e);
                             //alert(JSON.stringify(e));
-                            $('#Gx').text(`Ax: ${gyroscope.x.toFixed(3)} rad/s`);
-                            $('#Gy').text(`Ay: ${gyroscope.y.toFixed(3)} rad/s`);
-                            $('#Gz').text(`Az: ${gyroscope.z.toFixed(3)} rad/s`);
+                            $('#Gx').text(`Gx: ${gyroscope.x.toFixed(3)} rad/s`);
+                            $('#Gy').text(`Gy: ${gyroscope.y.toFixed(3)} rad/s`);
+                            $('#Gz').text(`Gz: ${gyroscope.z.toFixed(3)} rad/s`);
                         };
                         // Start accelerometer
                         gyroscope.start();
@@ -93,7 +93,7 @@
                             $('#Latitude').text(`Latitude: ${position.coords.latitude.toFixed(3)}º`);
                             $('#Longitude').text(`Longitude: ${position.coords.longitude.toFixed(3)}º`);
                             $('#Altitude').text(`Altitude: ${position.coords.altitude.toFixed(3)} m`);
-                            $('#Accuracy ').text(`Accuracy: ${position.coords.accuracy.toFixed(3)} m`);
+                            $('#Accuracy').text(`Accuracy: ${position.coords.accuracy.toFixed(3)} m`);
                             $('#AltitudeAccuracy').text(`Altitude Accuracy: ${position.coords.altitudeAccuracy.toFixed(3)} m`);
                             $('#Heading').text(`Heading: ${position.coords.heading.toFixed(3)}º`);
                             $('#Speed').text(`Speed: ${position.coords.speed.toFixed(3)} m/s`);
