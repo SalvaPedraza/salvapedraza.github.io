@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
+        
+    </head>
+    <body>
+        <h1>Hellooooooooo World</h1>
+        <p>I'm hosted with GitHub Pages.</p>
+
         <script>
             if ('Accelerometer' in window) {
                 // The `Accelerometer` interface is supported by the browser.
@@ -13,19 +19,19 @@
 
             let accelerometer = null;
             try {
-            accelerometer = new Accelerometer({ frequency: 10 });
-            accelerometer.onerror = (event) => {
-                // Handle runtime errors.
-                if (event.error.name === 'NotAllowedError') {
-                console.log('Permission to access sensor was denied.');
-                } else if (event.error.name === 'NotReadableError') {
-                console.log('Cannot connect to the sensor.');
-                }
-            };
-            accelerometer.onreading = (e) => {
-                console.log(e);
-            };
-            accelerometer.start();
+                accelerometer = new Accelerometer({ frequency: 10 });
+                accelerometer.onerror = (event) => {
+                    // Handle runtime errors.
+                    if (event.error.name === 'NotAllowedError') {
+                    console.log('Permission to access sensor was denied.');
+                    } else if (event.error.name === 'NotReadableError') {
+                    console.log('Cannot connect to the sensor.');
+                    }
+                };
+                accelerometer.onreading = (e) => {
+                    console.log(e);
+                };
+                accelerometer.start();
             } catch (error) {
                 // Handle construction errors.
                 if (error.name === 'SecurityError') {
@@ -40,9 +46,9 @@
 
             
         </script>
-    </head>
-    <body>
-        <h1>Hellooooooooo World</h1>
-        <p>I'm hosted with GitHub Pages.</p>
+
+
+
+
     </body>
 </html>
